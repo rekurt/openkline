@@ -15,18 +15,31 @@ npm install @rekurt/openkline-core
 ```ts
 import { OHLCVChart } from '@rekurt/openkline-core';
 
+const container = document.createElement('div');
+container.style.cssText = 'width: 100%; height: 400px';
+document.body.appendChild(container);
+
 const chart = new OHLCVChart({
-  container: document.getElementById('chart')!,
+  container,
   symbol: 'BTC/USDT',
   resolution: '1H',
-  theme: 'auto',       // or 'dark' | 'light'
-  onError: (err) => console.error(err),
+  theme: 'auto',
+  onError: (err) => console.error('[openkline]', err),
 });
 
+// Small synthetic hourly dataset.
 chart.setData([
-  { o: 42000, h: 42100, l: 41900, c: 42050, v: 1_000, t: 1_700_000_000 },
-  // ...
+  { o: 42000, h: 42100, l: 41900, c: 42050, v: 1000, t: 1700000000 },
+  { o: 42050, h: 42200, l: 42000, c: 42100, v: 1200, t: 1700003600 },
+  { o: 42100, h: 42250, l: 42050, c: 42150, v: 1600, t: 1700007200 },
 ]);
+
+// Replace the current last candle with a synthetic update.
+chart.updateLastCandle({
+  o: 42100, h: 42300, l: 42050, c: 42200, v: 1800, t: 1700007200,
+});
+
+// When removing this view, call chart.destroy().
 ```
 
 ## Features
