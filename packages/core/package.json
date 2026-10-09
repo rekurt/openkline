@@ -60,13 +60,21 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "files": ["dist", "README.md"],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "tsup",
-    "dev": "tsup --watch"
+    "dev": "tsup --watch",
+    "prepack": "npm run build"
   },
   "sideEffects": false,
   "engines": {
     "node": ">=18.18.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
