@@ -1,0 +1,23 @@
+[
+  {
+    "file": "wordmark.png",
+    "width": 220,
+    "height": 220,
+    "bytes": 4476,
+    "sha256": "16506718551cf6b952681e1d66bab70208867fa6afa1185a0f696f134a64d9f8"
+  },
+  {
+    "file": "candles-sma.png",
+    "width": 2056,
+    "height": 1057,
+    "bytes": 533582,
+    "sha256": "d0516add64b64158685e2bb82fbe6a48fb195aa95d66abd834324e9ebd525379"
+  },
+  {
+    "file": "line-sma.png",
+    "width": 2056,
+    "height": 1057,
+    "bytes": 473128,
+    "sha256": "4b96cb9e5bced595522a5e0e36fb66157c5f0b388a434c7854fca9ab944fad57"
+  }
+]
