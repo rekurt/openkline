@@ -1,4 +1,4 @@
-import { bench, describe } from 'vitest';
+import { test, describe } from 'vitest';
 import { CandleBuffer } from '../data/CandleBuffer';
 import { findGaps } from '../data/gaps';
 import type { Candle } from '../types';
@@ -39,26 +39,36 @@ const prebuilt = new CandleBuffer(N);
 for (const c of SAMPLE) prebuilt.append(c);
 
 describe(`CandleBuffer @ ${N} candles`, () => {
-  bench('append (fresh buffer)', () => {
+  test('append (fresh buffer)', async ({ bench }) => {
+    await bench('append (fresh buffer)', () => {
     const buf = new CandleBuffer();
     for (let i = 0; i < N; i++) buf.append(SAMPLE[i]!);
+  }).run();
   });
 
-  bench('appendBatch (fresh buffer)', () => {
+  test('appendBatch (fresh buffer)', async ({ bench }) => {
+    await bench('appendBatch (fresh buffer)', () => {
     const buf = new CandleBuffer();
     buf.appendBatch(SAMPLE);
+  }).run();
   });
 
-  bench('updateLast x N (realtime tick simulation)', () => {
+  test('updateLast x N (realtime tick simulation)', async ({ bench }) => {
+    await bench('updateLast x N (realtime tick simulation)', () => {
     const last = SAMPLE[N - 1]!;
     for (let i = 0; i < N; i++) prebuilt.updateLast(last);
+  }).run();
   });
 
-  bench('sliceView(0, N) full zero-copy view', () => {
+  test('sliceView(0, N) full zero-copy view', async ({ bench }) => {
+    await bench('sliceView(0, N) full zero-copy view', () => {
     prebuilt.sliceView(0, prebuilt.length);
+  }).run();
   });
 
-  bench('findGaps (full scan)', () => {
+  test('findGaps (full scan)', async ({ bench }) => {
+    await bench('findGaps (full scan)', () => {
     findGaps(prebuilt, 60);
+  }).run();
   });
 });

@@ -43,8 +43,8 @@ export class Ray extends Drawing {
 
     // Project to the right edge of the chart area. If the ray is
     // vertical (dx == 0) we cap at the top/bottom instead.
-    let endX = layout.chartRight;
-    let endY = y2;
+    let endX: number;
+    let endY: number;
     if (dx !== 0) {
       const slope = dy / dx;
       if (dx > 0) {

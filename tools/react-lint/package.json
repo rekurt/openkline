@@ -1,0 +1,9 @@
+{
+  "name": "openkline-react-lint",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "eslint": "^9.39.5",
+    "eslint-plugin-react": "^7.37.5"
+  }
+}

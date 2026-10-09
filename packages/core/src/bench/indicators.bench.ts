@@ -1,4 +1,4 @@
-import { bench, describe } from 'vitest';
+import { test, describe } from 'vitest';
 import { CandleBuffer } from '../data/CandleBuffer';
 import type { Candle } from '../types';
 import { SMA } from '../indicators/SMA';
@@ -54,13 +54,31 @@ describe(`indicator compute @ ${N} candles`, () => {
   const vwap = new VWAP('session');
   const psar = new ParabolicSAR();
 
-  bench('SMA(20)', () => void sma.compute(buf));
-  bench('EMA(20)', () => void ema.compute(buf));
-  bench('RSI(14)', () => void rsi.compute(buf));
-  bench('BollingerBands(20,2)', () => void bb.compute(buf));
-  bench('MACD(12,26,9)', () => void macd.compute(buf));
-  bench('Ichimoku(9,26,52)', () => void ichimoku.compute(buf));
-  bench('Supertrend(10,3)', () => void supertrend.compute(buf));
-  bench('VWAP(session)', () => void vwap.compute(buf));
-  bench('ParabolicSAR', () => void psar.compute(buf));
+  test('SMA(20)', async ({ bench }) => {
+    await bench('SMA(20)', () => void sma.compute(buf)).run();
+  });
+  test('EMA(20)', async ({ bench }) => {
+    await bench('EMA(20)', () => void ema.compute(buf)).run();
+  });
+  test('RSI(14)', async ({ bench }) => {
+    await bench('RSI(14)', () => void rsi.compute(buf)).run();
+  });
+  test('BollingerBands(20,2)', async ({ bench }) => {
+    await bench('BollingerBands(20,2)', () => void bb.compute(buf)).run();
+  });
+  test('MACD(12,26,9)', async ({ bench }) => {
+    await bench('MACD(12,26,9)', () => void macd.compute(buf)).run();
+  });
+  test('Ichimoku(9,26,52)', async ({ bench }) => {
+    await bench('Ichimoku(9,26,52)', () => void ichimoku.compute(buf)).run();
+  });
+  test('Supertrend(10,3)', async ({ bench }) => {
+    await bench('Supertrend(10,3)', () => void supertrend.compute(buf)).run();
+  });
+  test('VWAP(session)', async ({ bench }) => {
+    await bench('VWAP(session)', () => void vwap.compute(buf)).run();
+  });
+  test('ParabolicSAR', async ({ bench }) => {
+    await bench('ParabolicSAR', () => void psar.compute(buf)).run();
+  });
 });

@@ -104,6 +104,8 @@ jobs:
           path: _site
 
   deploy:
+    # Protected Pages publishes only reviewed default-branch builds.
+    if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-latest
     environment:
