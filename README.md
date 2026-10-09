@@ -94,30 +94,31 @@ core tarball. Application installations use the npm packages shown above.
 ```ts
 import { OHLCVChart } from '@rekurt/openkline-core';
 
+const container = document.createElement('div');
+container.style.cssText = 'width: 100%; height: 400px';
+document.body.appendChild(container);
+
 const chart = new OHLCVChart({
-  container: document.getElementById('chart')!,
+  container,
   symbol: 'BTC/USDT',
   resolution: '1H',
   theme: 'auto',
   onError: (err) => console.error('[openkline]', err),
 });
 
-chart.setData(historicalCandles);
-
-// Declarative indicators via config objects — the same path the React and
-// Vue wrappers use. `saveLayoutState` round-trips these configs.
-chart.setIndicatorConfigs([
-  { type: 'sma', period: 20 },
-  { type: 'ema', period: 50 },
-  { type: 'bb', period: 20, stdDev: 2 },
+// Small synthetic hourly dataset.
+chart.setData([
+  { o: 42000, h: 42100, l: 41900, c: 42050, v: 1000, t: 1700000000 },
+  { o: 42050, h: 42200, l: 42000, c: 42100, v: 1200, t: 1700003600 },
+  { o: 42100, h: 42250, l: 42050, c: 42150, v: 1600, t: 1700007200 },
 ]);
 
-// Live mode
-setInterval(() => chart.updateLastCandle(latestCandle), 500);
+// Replace the current last candle with a synthetic update.
+chart.updateLastCandle({
+  o: 42100, h: 42300, l: 42050, c: 42200, v: 1800, t: 1700007200,
+});
 
-// Shareable chart state — save to a query param, load from one
-const share = btoa(JSON.stringify(chart.saveLayoutState()));
-chart.loadState(JSON.parse(atob(share)));
+// When removing this view, call chart.destroy().
 ```
 
 ### React
