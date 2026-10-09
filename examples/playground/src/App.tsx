@@ -70,7 +70,10 @@ export function App() {
     if (!initialState) return;
     setSymbolId(initialState.symbol);
     setResolutionId(initialState.resolution);
-    setChartType(initialState.chartType);
+    // The toolbar offers built-in types; custom series remain in the layout.
+    const sharedType = (['candles', 'line', 'area', 'ohlc', 'heikinashi', 'baseline'] as const)
+      .find((type) => type === initialState.chartType);
+    if (sharedType) setChartType(sharedType);
     if (typeof initialState.theme === 'string') {
       setTheme(initialState.theme as ThemeMode);
     }
