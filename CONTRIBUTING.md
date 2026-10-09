@@ -78,7 +78,7 @@ React and Vue.
    ```bash
    npm run lint && npm run typecheck && npm test && npm run build
    ```
-4. **CI re-runs all of the above** on Node 20 and 22. Pages are
+4. **CI re-runs all of the above** on Node 22 and 24. Pages are
    re-published on every push to `master`.
 
 ## Commit conventions
