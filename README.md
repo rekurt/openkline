@@ -82,9 +82,8 @@ npm install @rekurt/openkline-core @rekurt/openkline-react
 npm install @rekurt/openkline-core @rekurt/openkline-vue
 ```
 
-> **Pre-release note:** until the packages are published to npm, the wrapper
-> repos vendor a built core tarball so `npm install` works out of the box. See
-> each wrapper's README for `npm run update:core`.
+For development from a repository checkout, the wrapper repos use a tested
+core tarball. Application installations use the npm packages shown above.
 
 ---
 
