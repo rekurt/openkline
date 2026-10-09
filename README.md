@@ -17,7 +17,7 @@ transports — with first-class **React** and **Vue** wrappers at full API parit
 [**Live Playground**](https://rekurt.github.io/openkline/) ·
 [**API Reference**](https://rekurt.github.io/openkline/api/) ·
 [**Guides**](./docs/GUIDES.md) ·
-[**Comparison**](./docs/COMPARISON.md) ·
+[**Comparison**](./docs/COMPARISON.en.md) ·
 [**Changelog**](./CHANGELOG.md) ·
 [**All projects by rekurt**](https://rekurt.github.io/projects/)
 
@@ -316,11 +316,17 @@ conventions, and [CLAUDE.md](./CLAUDE.md) for how AI agents should work here.
 
 ## Roadmap
 
-`0.1.0` is the first public release: the core primitives are stable and
-well-tested. Upcoming milestones add deeper multi-pane integration, more
-indicators and drawing tools, alerts, replay mode, compare mode, workspaces and
-internationalization. See the [CHANGELOG](./CHANGELOG.md) and the
-[M1 design doc](./docs/superpowers/specs/2026-04-11-ohlcv-m1-foundations-design.md).
+The current core package is `0.2.0`. Indicator sub-panes, price alerts,
+bar-by-bar replay, compare overlays, and locale-aware formatting with message
+overrides are implemented; they are no longer future milestones. Compare and
+volume profile are opt-in controllers. Chart snapshots support persistence;
+a complete workspace UI and storage integration remain application work.
+
+See the [comparison and implementation evidence](./docs/COMPARISON.en.md)
+for availability and integration limits, and the [CHANGELOG](./CHANGELOG.md)
+for release history. The [M1 design doc](./docs/superpowers/specs/2026-04-11-ohlcv-m1-foundations-design.md)
+is historical context, not a current delivery schedule. Further milestones
+have no committed dates here.
 
 ---
 
