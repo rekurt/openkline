@@ -6,7 +6,8 @@ example apps and a unified playground.
 
 ## Prerequisites
 
-- Node.js 20 or newer
+- Node.js `^22.13.0 || ^24.0.0 || >=26.0.0` for repository development (CI verifies Node 22 and 24).
+- These developer-tool requirements do not change the published core package's Node runtime contract.
 - npm 10+
 
 ## One-time setup
