@@ -23,6 +23,11 @@ transports — with first-class **React** and **Vue** wrappers at full API parit
 
 </div>
 
+[![OpenKline playground in dark mode showing candlesticks, an SMA overlay, and volume bars from synthetic BTC/USDT demo data](./docs/images/playground-candles.png)](https://rekurt.github.io/openkline/)
+
+*Actual playground screenshot with synthetic demo candles; no live exchange feed.
+[Try the interactive playground](https://rekurt.github.io/openkline/).*
+
 ---
 
 ## Table of contents
