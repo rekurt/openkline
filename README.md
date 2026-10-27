@@ -44,6 +44,8 @@ transports — with first-class **React** and **Vue** wrappers at full API parit
 - [Develop this monorepo](#develop-this-monorepo)
 - [Quality bar](#quality-bar)
 - [Roadmap](#roadmap)
+- [Maintainer and contributions](#maintainer-and-contributions)
+- [Support needs](#support-needs)
 - [License](#license)
 
 ---
@@ -332,6 +334,44 @@ for availability and integration limits, and the [CHANGELOG](./CHANGELOG.md)
 for release history. The [M1 design doc](./docs/superpowers/specs/2026-04-11-ohlcv-m1-foundations-design.md)
 is historical context, not a current delivery schedule. Further milestones
 have no committed dates here.
+
+The following contribution opportunities come from existing implementation
+and verification gaps. They are candidates for discussion, not scheduled
+releases; check [open pull requests](https://github.com/rekurt/openkline/pulls)
+before starting overlapping work.
+
+| Task | Current evidence | Useful outcome |
+| --- | --- | --- |
+| Make browser regression checks repeatable | The [playground layout check](./examples/playground/tests/layout.browser.js) is a manual browser-console script; [Vitest](./vitest.config.ts) runs the core tests in jsdom. | Automate the existing resize/control checks and record browser, OS, viewport, and commit for real-browser pan, zoom, touch, and export checks. |
+| Complete marker hover detection | [`HoveredObject`](./packages/core/src/types.ts) reserves `marker`, but [`CrosshairController`](./packages/core/src/interaction/CrosshairController.ts) currently reports only drawings and primitives. | Add marker hit-testing with tests for object priority and replay visibility before documenting marker hover as available. |
+
+---
+
+## Maintainer and contributions
+
+The repository is maintained by [@rekurt](https://github.com/rekurt).
+Use [issues](https://github.com/rekurt/openkline/issues) for reproducible bugs,
+feature proposals, and public support discussions; submit focused pull
+requests against `master` following [CONTRIBUTING.md](./CONTRIBUTING.md).
+Include the package/version, browser/OS, and a small reproduction using
+synthetic data. React- or Vue-specific changes belong in the separate wrapper
+repositories listed under [Packages](#packages).
+
+Participation follows the existing [Code of Conduct](./CODE_OF_CONDUCT.md).
+For vulnerability reporting, consult [SECURITY.md](./SECURITY.md).
+
+## Support needs
+
+Useful in-kind support would provide real desktop/mobile browser access for
+the regression work above and development tools for investigating failures
+in the TypeScript test suite. Results should be reproducible public bug
+reports, regression tests, and documented browser checks against the
+[synthetic-data playground](https://rekurt.github.io/openkline/).
+Unit tests and builds alone do not establish real-device compatibility.
+
+Support proposals can be discussed through the public issue tracker without
+posting account details or credentials. Scope, available resources, and
+delivery dates for these tasks remain unconfirmed.
 
 ---
 
