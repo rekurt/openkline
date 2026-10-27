@@ -345,6 +345,9 @@ before starting overlapping work.
 | Make browser regression checks repeatable | The [playground layout check](./examples/playground/tests/layout.browser.js) is a manual browser-console script; [Vitest](./vitest.config.ts) runs the core tests in jsdom. | Automate the existing resize/control checks and record browser, OS, viewport, and commit for real-browser pan, zoom, touch, and export checks. |
 | Complete marker hover detection | [`HoveredObject`](./packages/core/src/types.ts) reserves `marker`, but [`CrosshairController`](./packages/core/src/interaction/CrosshairController.ts) currently reports only drawings and primitives. | Add marker hit-testing with tests for object priority and replay visibility before documenting marker hover as available. |
 
+See the [proposed grant work packages](./docs/GRANT_WORK_PACKAGES.md) for
+acceptance criteria and the evidence needed to review each deliverable.
+
 ---
 
 ## Maintainer and contributions
