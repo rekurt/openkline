@@ -6,7 +6,8 @@ example apps and a unified playground.
 
 ## Prerequisites
 
-- Node.js 20 or newer
+- Node.js `^22.13.0 || ^24.0.0 || >=26.0.0` for repository development (CI verifies Node 22 and 24).
+- These developer-tool requirements do not change the published core package's Node runtime contract.
 - npm 10+
 
 ## One-time setup
@@ -77,7 +78,7 @@ React and Vue.
    ```bash
    npm run lint && npm run typecheck && npm test && npm run build
    ```
-4. **CI re-runs all of the above** on Node 20 and 22. Pages are
+4. **CI re-runs all of the above** on Node 22 and 24. Pages are
    re-published on every push to `master`.
 
 ## Commit conventions
